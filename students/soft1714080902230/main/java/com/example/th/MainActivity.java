@@ -13,10 +13,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button Button_skip = (Button) findViewById(R.id.button);
-        Button_skip.setOnClickListener(
+        Button Button_skip1 = (Button) findViewById(R.id.button_zz);
+        Button_skip1.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         startActivity(new Intent(MainActivity.this, Main2Activity.class)); }
-                });}}
+                });
+
+        Button Button_skip2 = (Button) findViewById(R.id.button_alice);
+        Button_skip2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this, Main4Activity.class)); }
+                });
+
+        Button Button_skip3 = (Button) findViewById(R.id.button_medicine);
+        Button_skip3.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this, Main3Activity.class)); }
+                })
+
+
+        ;}}
+
