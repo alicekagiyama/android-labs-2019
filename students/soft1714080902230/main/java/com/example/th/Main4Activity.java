@@ -1,6 +1,9 @@
 package com.example.th;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -28,6 +31,16 @@ public class Main4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
+        final MyImageView image = (MyImageView) findViewById(R.id.alice_view);
+        Button button_save = (Button) findViewById(R.id.button_save);
+        button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Matrix max = new Matrix();
+                image.setDrawingCacheEnabled(true);
+                final Bitmap bmp =((BitmapDrawable) ((MyImageView)image).getDrawable()).getBitmap();
+                imageE.saveImage(bmp);
+            }});
 
         mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);

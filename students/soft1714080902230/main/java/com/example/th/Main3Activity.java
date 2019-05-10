@@ -1,6 +1,9 @@
 package com.example.th;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -27,6 +30,17 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+        final MyImageView image = (MyImageView) findViewById(R.id.medicine_view);
+        Button button_save = (Button) findViewById(R.id.button_save);
+        button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Matrix max = new Matrix();
+                image.setDrawingCacheEnabled(true);
+                final Bitmap bmp =((BitmapDrawable) ((MyImageView)image).getDrawable()).getBitmap();
+                imageE.saveImage(bmp);
+            }});
 
 
         mSensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
